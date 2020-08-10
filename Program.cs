@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cypher
@@ -18,6 +15,14 @@ namespace Cypher
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
+        }
+
+        /// <summary>
+        ///  Enumuerator of available cyphers
+        /// </summary>
+        public enum Cypher
+        {
+            Ceasar
         }
     }
 }
