@@ -20,13 +20,26 @@ namespace Cypher
                 case Program.Cypher.Ceasar:
                     CeasarCypher();
                     break;
-                default:
+            }
+        }
+
+        private void onCypherSelected(object sender, EventArgs e)
+        {
+            switch (cypherSelector.SelectedValue)
+            {
+                case Program.Cypher.Ceasar:
+                    optionalInputText.PlaceholderText = "Enter step here";
+                    optionalInputText.Visible = true;
                     break;
             }
         }
 
         private void CeasarCypher()
         {
+            //Check if step is entered correctly
+            bool parseSuccess = Int32.TryParse(optionalInputText.Text, out int step);
+            if (!parseSuccess) return;
+
             StringBuilder stringBuilder = new StringBuilder(inputText.Text);
             string Alphabet = "abcdefghijklmnopqrstuvwxyz";
             for (int i = 0; i < inputText.Text.Length; i++)
@@ -36,7 +49,7 @@ namespace Cypher
                     if (inputText.Text[i] == Alphabet[j])
                     {
                         stringBuilder.Remove(i,1);
-                        stringBuilder.Insert(i,Alphabet[(j+3)%Alphabet.Length]);
+                        stringBuilder.Insert(i,Alphabet[(j+step)%Alphabet.Length]);
                         break;
                     }
                 }

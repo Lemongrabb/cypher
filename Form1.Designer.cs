@@ -32,6 +32,7 @@
             this.topPanel = new System.Windows.Forms.Panel();
             this.logo = new System.Windows.Forms.PictureBox();
             this.inputText = new System.Windows.Forms.RichTextBox();
+            this.optionalInputText = new System.Windows.Forms.TextBox();
             this.cypherSelector = new System.Windows.Forms.ComboBox();
             this.outputText = new System.Windows.Forms.RichTextBox();
             this.topPanel.SuspendLayout();
@@ -63,22 +64,27 @@
             this.inputText.Name = "inputText";
             this.inputText.Size = new System.Drawing.Size(100, 96);
             this.inputText.TabIndex = 1;
-            this.inputText.Text = "";
             this.inputText.TextChanged += new System.EventHandler(this.inputText_TextChanged);
+            // 
+            // optionalInputText
+            // 
+            this.optionalInputText.Location = new System.Drawing.Point(332, 196);
+            this.optionalInputText.Name = "optionalInputText";
+            this.optionalInputText.Size = new System.Drawing.Size(121, 23);
+            this.optionalInputText.TabIndex = 4;
+            this.optionalInputText.Visible = false;
             // 
             // cypherSelector
             // 
             this.cypherSelector.DisplayMember = "Text";
             this.cypherSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cypherSelector.FormattingEnabled = true;
-            this.cypherSelector.Items.AddRange(new object[] {
-            "Szyfr Cezara",
-            "Szyfr podsawieniowy"});
             this.cypherSelector.Location = new System.Drawing.Point(332, 167);
             this.cypherSelector.Name = "cypherSelector";
             this.cypherSelector.Size = new System.Drawing.Size(121, 23);
             this.cypherSelector.TabIndex = 2;
             this.cypherSelector.ValueMember = "ID";
+            this.cypherSelector.SelectedIndexChanged += new System.EventHandler(this.onCypherSelected);
             // 
             // outputText
             // 
@@ -94,6 +100,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.optionalInputText);
             this.Controls.Add(this.outputText);
             this.Controls.Add(this.cypherSelector);
             this.Controls.Add(this.inputText);
@@ -103,6 +110,7 @@
             this.topPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
         }
 
         #endregion
@@ -112,6 +120,7 @@
         public System.Windows.Forms.RichTextBox inputText;
         private System.Windows.Forms.ComboBox cypherSelector;
         private System.Windows.Forms.RichTextBox outputText;
+        private System.Windows.Forms.TextBox optionalInputText;
     }
 }
 
