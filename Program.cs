@@ -22,7 +22,8 @@ namespace Cypher
         /// </summary>
         public enum Cypher
         {
-            Ceasar
+            Ceasar,
+            RailFence
         }
     }
 }
